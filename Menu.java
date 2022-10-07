@@ -1,6 +1,7 @@
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
-public class Menu {
+public class Menu { // FAZER TUDO COM INTERFACE GRÁFICA JFRAME
 	
 	public static Produto prod;
 	Funcionario func;
@@ -21,6 +22,12 @@ public class Menu {
 	}
 	
 	public void login() {
+
+		JFrame telaLogin = new JFrame("Início");
+		telaLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		telaLogin.setLayout(null);
+		telaLogin.setSize(300, 400);
+		telaLogin.setVisible(true);
 
 		String login, senha;
 		String[] opcoes = {"Entrar", "Registrar", "Sair"};
