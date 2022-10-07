@@ -109,7 +109,6 @@ public class Menu {
 	}
 	
 	public void telaAdm() {
-		// dentro dos Consultar vai ter o Alterar
 		String[] opcoes = {"Realizar venda", "Cadastrar funcionário", "Consultar funcionário", "Cadastrar produto", "Consultar produto", "Perfil", "Logout"};
 		int resp;
 		do {
@@ -148,14 +147,41 @@ public class Menu {
 				case 6:
 
 				default:
+					resp = 6;
 					break;
 			}
 		} while(resp != 6);
 	}
 	
 	public void telaFunc() {
-		// dentro dos Consultar vai ter o Alterar
-		String[] opcoes = {"Realizar venda", "Consultar funcionário", "Consultar produto", "Perfil", "Logout"};
+		String[] opcoes = {"Realizar venda", "Consultar produto", "Perfil", "Logout"};
+		int resp = JOptionPane.showOptionDialog(null, "Escolha uma opção para continuar", "Principal - Funcionário", 0, 1, null, opcoes, opcoes[0]);
+		do {
+		switch(resp) {
+			case 0:
+				if(prodFlag) {
+					prod.consultarProduto();
+				} else {
+					JOptionPane.showMessageDialog(null, "O Adm deve cadastrar um produto antes.", "Realizando venda", JOptionPane.WARNING_MESSAGE);
+				}
+			break;
+			case 1:
+				if(prodFlag) {
+					prod.consultarProduto();
+				} else {
+					JOptionPane.showMessageDialog(null, "O Adm deve cadastrar um produto antes.", "Realizando venda", JOptionPane.WARNING_MESSAGE);
+				}
+				break;
+			case 2:
+				func.consultarFunc();
+				break;
+			case 3:
+
+			default:
+				resp = 3;
+				break;
+		}
+		} while(resp != 3);
 	}
 
 }
