@@ -50,6 +50,7 @@ public class Produto {
 				this.setValor(valor);
 				this.setQuantidade(Integer.parseInt(estoque));
 				JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!", "Cadastrando produto", JOptionPane.INFORMATION_MESSAGE);
+				Menu.prodFlag = true;
 				flag = false;
 			} else {
 				JOptionPane.showMessageDialog(null, "Você esqueceu de preencher algum campo.", "Erro ao cadastrar produto", JOptionPane.ERROR_MESSAGE);

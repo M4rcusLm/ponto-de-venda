@@ -6,6 +6,8 @@ public class Menu {
 	Funcionario func;
 	Adm adm;
 	private String codigo = "12345";
+	static boolean prodFlag = false;
+	static boolean funcFlag = false;
 	
 	public Menu() {
 		prod = new Produto();
@@ -111,9 +113,43 @@ public class Menu {
 		String[] opcoes = {"Realizar venda", "Cadastrar funcionário", "Consultar funcionário", "Cadastrar produto", "Consultar produto", "Perfil", "Logout"};
 		int resp;
 		do {
-			
 			resp = JOptionPane.showOptionDialog(null, "Escolha uma opção para continuar", "Principal - Adm", 0, 1, null, opcoes, opcoes[0]);
-			
+			switch(resp) {
+				case 0:
+					if(prodFlag) {
+						adm.realizarVenda();
+					} else {
+						JOptionPane.showMessageDialog(null, "O Adm deve cadastrar um produto antes.", "Realizando venda", JOptionPane.WARNING_MESSAGE);
+					}
+					break;
+				case 1:
+					adm.cadastrarFuncionario();
+					break;
+				case 2:
+					if(funcFlag) {
+						adm.consultarFunc();
+					} else {
+						JOptionPane.showMessageDialog(null, "O Adm deve cadastrar um funcionário antes.", "Realizando venda", JOptionPane.WARNING_MESSAGE);
+					}
+					break;
+				case 3:
+					prod.cadastrarProduto();
+					break;
+				case 4:
+					if(prodFlag) {
+						prod.consultarProduto();
+					} else {
+						JOptionPane.showMessageDialog(null, "O Adm deve cadastrar um produto antes.", "Realizando venda", JOptionPane.WARNING_MESSAGE);
+					}
+					break;
+				case 5:
+					adm.consultarAdm();
+					break;
+				case 6:
+
+				default:
+					break;
+			}
 		} while(resp != 6);
 	}
 	

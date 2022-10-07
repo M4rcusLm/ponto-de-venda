@@ -54,6 +54,7 @@ public class Funcionario {
 				this.setEmail(email);
 				this.setSenha(senha);
 				JOptionPane.showMessageDialog(null, "Cadastrado com sucesso!", "Cadastrando funcionário", JOptionPane.INFORMATION_MESSAGE);
+				Menu.funcFlag = true;
 				flag = false;
 			} else {
 				JOptionPane.showMessageDialog(null, "Você esqueceu de preencher algum campo.", "Erro ao cadastrar funcionário", JOptionPane.ERROR_MESSAGE);
@@ -134,7 +135,7 @@ public class Funcionario {
 				quant.replaceAll("[^0-9]", "");
 				qnt = Integer.parseInt(quant);
 				
-				if(qnt < Menu.prod.getQuantidade()) {
+				if(qnt <= Menu.prod.getQuantidade()) {
 					total = qnt * Menu.prod.getValor();
 					int confirm = JOptionPane.showConfirmDialog(null, "Valor a ser pago: R$" + Double.toString(total), "Confirmando venda", JOptionPane.INFORMATION_MESSAGE);
 					
