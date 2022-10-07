@@ -2,8 +2,6 @@ import javax.swing.JOptionPane;
 
 public class Produto {
 
-	// FINALIZADO
-	
 	private String nome;
 	private double valor;
 	private int quantidade;

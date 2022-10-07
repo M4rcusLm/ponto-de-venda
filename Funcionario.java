@@ -1,8 +1,6 @@
 import javax.swing.JOptionPane;
 
 public class Funcionario {
-	
-	// FINALIZADO
 
 	private String nome, email, senha;
 
