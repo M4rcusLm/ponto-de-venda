@@ -155,31 +155,32 @@ public class Menu {
 	
 	public void telaFunc() {
 		String[] opcoes = {"Realizar venda", "Consultar produto", "Perfil", "Logout"};
-		int resp = JOptionPane.showOptionDialog(null, "Escolha uma opção para continuar", "Principal - Funcionário", 0, 1, null, opcoes, opcoes[0]);
+		int resp;
 		do {
-		switch(resp) {
-			case 0:
-				if(prodFlag) {
-					prod.consultarProduto();
-				} else {
-					JOptionPane.showMessageDialog(null, "O Adm deve cadastrar um produto antes.", "Realizando venda", JOptionPane.WARNING_MESSAGE);
-				}
-			break;
-			case 1:
-				if(prodFlag) {
-					prod.consultarProduto();
-				} else {
-					JOptionPane.showMessageDialog(null, "O Adm deve cadastrar um produto antes.", "Realizando venda", JOptionPane.WARNING_MESSAGE);
-				}
-				break;
-			case 2:
-				func.consultarFunc();
-				break;
-			case 3:
+			resp = JOptionPane.showOptionDialog(null, "Escolha uma opção para continuar", "Principal - Funcionário", 0, 1, null, opcoes, opcoes[0]);
+			switch(resp) {
+				case 0:
+					if(prodFlag) {
+						prod.consultarProduto();
+					} else {
+						JOptionPane.showMessageDialog(null, "O Adm deve cadastrar um produto antes.", "Realizando venda", JOptionPane.WARNING_MESSAGE);
+					}
+					break;
+				case 1:
+					if(prodFlag) {
+						prod.consultarProduto();
+					} else {
+						JOptionPane.showMessageDialog(null, "O Adm deve cadastrar um produto antes.", "Realizando venda", JOptionPane.WARNING_MESSAGE);
+					}
+					break;
+				case 2:
+					func.consultarFunc();
+					break;
+				case 3:
 
-			default:
-				resp = 3;
-				break;
+				default:
+					resp = 3;
+					break;
 		}
 		} while(resp != 3);
 	}
