@@ -1,5 +1,13 @@
+import java.awt.Color;
+
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JTextField;
+
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class Menu { // FAZER TUDO COM INTERFACE GRÁFICA JFRAME
 	
@@ -9,6 +17,8 @@ public class Menu { // FAZER TUDO COM INTERFACE GRÁFICA JFRAME
 	private String codigo = "12345";
 	static boolean prodFlag = false;
 	static boolean funcFlag = false;
+	JTextField senha;
+	JTextField login;
 	
 	public Menu() {
 		prod = new Produto();
@@ -26,9 +36,50 @@ public class Menu { // FAZER TUDO COM INTERFACE GRÁFICA JFRAME
 		JFrame telaLogin = new JFrame("Início");
 		telaLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		telaLogin.setLayout(null);
-		telaLogin.setSize(300, 400);
+		telaLogin.setSize(300, 350);
+		telaLogin.getContentPane().setBackground(Color.GRAY);
+		telaLogin.setResizable(false);
+		telaLogin.setLocationRelativeTo(null);
 		telaLogin.setVisible(true);
 
+		JLabel lblNome = new JLabel("Login:");
+		lblNome.setBounds(40, 70, 50, 20);
+		lblNome.setForeground(Color.BLACK);
+		lblNome.setVisible(true);
+
+		senha = new JTextField();
+		senha.setBounds(40, 110, 200, 30);
+		senha.setVisible(true);
+
+		login = new JTextField();
+		login.setBounds(40, 70, 200,30);
+		login.setVisible(true);
+
+		JButton entrar = new JButton("Entrar");
+		entrar.setBounds(40, 170, 200, 40);
+		entrar.setBackground(new Color(70, 80, 200));
+		entrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				btmEntrar(evt);
+			}
+		});
+
+		JButton registrar = new JButton("Registrar");
+		registrar.setBounds(40, 220, 200, 40);
+		registrar.setBackground(new Color(70, 80, 200));
+		registrar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent evt) {
+				btmRegistrar(evt);
+			}
+		});
+
+		telaLogin.add(lblNome);
+		telaLogin.add(login);
+		telaLogin.add(senha);
+		telaLogin.add(entrar);
+		telaLogin.add(registrar);
+
+/*
 		String login, senha;
 		String[] opcoes = {"Entrar", "Registrar", "Sair"};
 		int resp;
@@ -113,6 +164,7 @@ public class Menu { // FAZER TUDO COM INTERFACE GRÁFICA JFRAME
 			}
 			
 		} while (resp != 2);
+		*/
 	}
 	
 	public void telaAdm() {
@@ -192,4 +244,23 @@ public class Menu { // FAZER TUDO COM INTERFACE GRÁFICA JFRAME
 		} while(resp != 3);
 	}
 
+	public void btmEntrar(ActionEvent evt) {
+
+	}
+
+	public void btmRegistrar(ActionEvent evt) {
+		String code = JOptionPane.showInputDialog(login, "Entre com o código do Adm para se registrar como funcionário imediatamente.", "Verificação", JOptionPane.INFORMATION_MESSAGE);
+		if(code == null) {
+			code = "";
+		} else {
+			if(code.equals(codigo)){
+				//func.cadastrarFuncionario();
+				func.setEmail(login.getText());
+				func.setSenha(senha.getText());
+				JOptionPane.showMessageDialog(login, "Cadastrado com sucesso.", "Registrando", 1);
+			} else {
+				JOptionPane.showMessageDialog(login, "Código inválido, tente novamente.", "Verificação", 2);
+			}
+		}
+	}
 }
