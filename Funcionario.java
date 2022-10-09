@@ -4,6 +4,7 @@ public class Funcionario {
 
 	private String nome, email, senha;
 
+	// inicio dos getters e setters
 	public String getNome() {
 		return nome;
 	}

@@ -1,9 +1,7 @@
 import javax.swing.JOptionPane;
 
 public class Adm extends Funcionario {
-	
-	// FINALIZADO
-	
+
 	public void consultarAdm() {
 		
 		String[] opcoes = {"Alterar", "Voltar"};

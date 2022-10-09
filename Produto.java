@@ -6,6 +6,7 @@ public class Produto {
 	private double valor;
 	private int quantidade;
 	
+	// inicio dos getters e setters
 	public String getNome() {
 		return nome;
 	}
@@ -24,6 +25,7 @@ public class Produto {
 	public void setQuantidade(int quantidade) {
 		this.quantidade = quantidade;
 	}
+	// fim dos getters e setters
 	
 	public void cadastrarProduto() {
 		
